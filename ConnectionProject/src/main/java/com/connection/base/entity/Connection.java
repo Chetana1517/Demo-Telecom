@@ -1,10 +1,18 @@
 package com.connection.base.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Connection {
+	@Id
 	private String uuid;
 	private String connection_name;
 	private String connection_status;
 	private String connection_plan;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long conncetion_reference_no;
 	
 	public Connection() {
