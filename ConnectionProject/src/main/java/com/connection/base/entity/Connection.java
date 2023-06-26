@@ -1,6 +1,8 @@
 package com.connection.base.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,17 +12,21 @@ public class Connection {
 	@Id
 	private String uuid;
 	private String connection_name;
-	private String connection_status;
+	
+	@Enumerated(EnumType.STRING)
+	private Status connection_status;
+	
 	private String connection_plan;
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
+	
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long conncetion_reference_no;
 	
 	public Connection() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public Connection(String uuid, String connection_name, String connection_status, String connection_plan,
+	public Connection(String uuid, String connection_name, Status connection_status, String connection_plan,
 			Long conncetion_reference_no) {
 		super();
 		this.uuid = uuid;
@@ -47,11 +53,11 @@ public class Connection {
 		this.connection_name = connection_name;
 	}
 
-	public String getConnection_status() {
+	public Status getConnection_status() {
 		return connection_status;
 	}
 
-	public void setConnection_status(String connection_status) {
+	public void setConnection_status(Status connection_status) {
 		this.connection_status = connection_status;
 	}
 
