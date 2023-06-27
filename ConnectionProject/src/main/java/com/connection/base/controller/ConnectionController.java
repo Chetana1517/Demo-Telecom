@@ -10,5 +10,6 @@ public class ConnectionController {
 	//GET API to get connection
 	public void getConnection() {
 		System.out.println("This is get method from controller");
+		System.out.println("Changes made into controller");
 	}
 }
