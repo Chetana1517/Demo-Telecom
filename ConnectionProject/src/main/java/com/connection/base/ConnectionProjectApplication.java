@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ConnectionProjectApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(ConnectionProjectApplication.class, args);
-	}
-
+	
+	  public static void main(String[] args) {
+	  SpringApplication.run(ConnectionProjectApplication.class, args); 
+	  }
+	
+	 
+	   
 }

@@ -1,9 +1,15 @@
 package com.connection.base.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Connection {
@@ -22,20 +28,33 @@ public class Connection {
 	
 	private Long connection_reference_no;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	private User user;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="fk_cn")
+	private List<Customer> customerList;
+	
+	
 	public Connection() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Connection(String connection_id, Name connection_name, Status connection_status, Plans connection_plan,
-			Long connection_reference_no) {
+			Long connection_reference_no, User user) {
 		super();
 		this.connection_id = connection_id;
 		this.connection_name = connection_name;
 		this.connection_status = connection_status;
 		this.connection_plan = connection_plan;
 		this.connection_reference_no = connection_reference_no;
+		this.user = user;
 	}
+
+
 
 	public String getConnection_id() {
 		return connection_id;
@@ -76,6 +95,32 @@ public class Connection {
 	public void setConnection_reference_no(Long connection_reference_no) {
 		this.connection_reference_no = connection_reference_no;
 	}
+	
+	
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
+	public List<Customer> getCustomerList() {
+		return customerList;
+	}
+
+
+
+	public void setCustomerList(List<Customer> customerList) {
+		this.customerList = customerList;
+	}
+
+
 
 	@Override
 	public String toString() {
